@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import NavHeader from "./components/NavHeader";
+import MovieList from "./components/MovieList";
+import BookList from "./components/BookList";
+import SeriesList from "./components/SeriesList";
+import GamesList from "./components/GamesList";
+import { Route, Routes } from 'react-router-dom'; 
+import AddMedia from './components/AddMedia';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="fullscreen">
+      <NavHeader />
+      <Routes>
+        <Route path="/MovieList" element={<MovieList/>} />
+        <Route path="/BookList" element={<BookList/>} />
+        <Route path="/SeriesList" element={<SeriesList/>} />
+        <Route path="/GamesList" element={<GamesList/>} />
+      </Routes>
+      <AddMedia />
     </div>
   );
 }
