@@ -134,7 +134,7 @@ h3 {
 }
 
 .EntryForm {
-  max-width: 300px;
+  max-width: 350px;
   padding: 10px;
   background-color: white;
 }
@@ -146,4 +146,8 @@ h3 {
   border: 3px solid black;
   z-index: 9;  
   position: fixed;
+}
+
+.formLabels {
+  padding: 5px;
 }

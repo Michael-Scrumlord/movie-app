@@ -30,43 +30,59 @@ function AddButtonClosed(props) {
                     <fieldset className="FormBox">
                         <fieldset>
                             <legend> Add a Title</legend>
-                            <label> Title:</label><br/>
+                            <label className="formLabels"> Title: </label>
                             <input type="text" id="uname" name="uname" required/><br/>
+                            <label className="formLabels"> Year: </label>
+                            <input type="number" min="1900" max="2024" step="1"/>
                         </fieldset>
                         <fieldset>
                             <legend required>Type</legend>
                             <input type="radio" id="movie" name="group1" />
-                            <label> Movie </label>
+                            <label className="formLabels"> Movie </label>
                             <input type="radio" id="series" name="group1"/>
-                            <label> Series </label>
+                            <label className="formLabels"> Series </label>
                             <input type="radio" id="game" name="group1"/>
-                            <label> Games </label>
+                            <label className="formLabels"> Games </label>
                             <input type="radio" id="book" name="group1"/>
-                            <label> Books </label>
+                            <label className="formLabels"> Books </label>
                         </fieldset>
                         <fieldset>
                             <legend>Genre</legend>
                             <input type="checkbox" id="horror" name="genre" />
-                            <label >Horror</label>
+                            <label className="formLabels">Horror</label>
                             <input type="checkbox" id="scifi" name="genre" />
-                            <label >Sci-Fi</label>
+                            <label className="formLabels">Sci-Fi</label>
                             <input type="checkbox" id="drama" name="genre" />
-                            <label >Drama</label><br></br>
+                            <label className="formLabels">Drama</label><br></br>
                             <input type="checkbox" id="comedy" name="genre" />
-                            <label >Comedy</label>
+                            <label className="formLabels">Comedy</label>
                             <input type="checkbox" id="family" name="genre" />
-                            <label >Family</label>
+                            <label className="formLabels">Family</label>
                             <input type="checkbox" id="action" name="genre" />
-                            <label >Action</label>
+                            <label className="formLabels">Action</label>
                         </fieldset>
                         <fieldset>
                         <legend>Add</legend>
-                        <label >Select the type: </label>
-                        <select name="fruit" id="fruit">
+                        <label className="formLabels">Rate the story: </label>
+                        <select name="rating" id="story">
                             <option value="banana">Banana</option>
                             <option value="apple">Apple</option>
                             <option value="pear">Pear</option>
                             <option value="grape">Grape</option>
+                        </select><br/>
+                        <label className="formLabels">Rate the originality: </label>
+                        <select name="rating" id="originality">
+                            <option value="banana">Generic</option>
+                            <option value="apple">Apple</option>
+                            <option value="pear">Pear</option>
+                            <option value="grape">Grape</option>
+                        </select>
+                        <label className="formLabels">Would you recommend to a friend? </label>
+                        <select name="rating" id="recommend">
+                            <option value="banana">No, I wouldn't subject someone to this.</option>
+                            <option value="apple">Probably not</option>
+                            <option value="pear">No, but it was still a good movie</option>
+                            <option value="grape">Yes</option>
                         </select>
                         </fieldset>
                         <legend>Leave a review:</legend>
