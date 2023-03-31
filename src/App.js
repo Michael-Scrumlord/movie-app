@@ -12,13 +12,14 @@ function App() {
   return (
     <div className="fullscreen">
       <NavHeader />
+      <AddMedia />
       <Routes>
+        <Route path="/" element={<MovieList/>} />
         <Route path="/MovieList" element={<MovieList/>} />
         <Route path="/BookList" element={<BookList/>} />
         <Route path="/SeriesList" element={<SeriesList/>} />
         <Route path="/GamesList" element={<GamesList/>} />
       </Routes>
-      <AddMedia />
     </div>
   );
 }

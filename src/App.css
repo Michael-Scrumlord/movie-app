@@ -1,76 +1,80 @@
 /* The main board, this was used to create the "screen size" */
-* {
-  box-sizing: border-box;
-}
+
 
 .fullscreen {
   background: #D9D9D9;
+  width: 100%;
+  height: 100%;
 }
 
-/* Rectangle 2 */
 /* Header */
 .header {
-  width: 100vw;
-  height: 20vh;
+  width: 100%;
+  height: 20%;
   background: linear-gradient(0deg, #000000, #000000), #D9D9D9;
   border: 1px solid #000000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* Rectangle 3 */
 /* Main movie title card */
 .movie-card {
+  display: grid;
+  grid-template-columns: 155px auto;
   margin-top: 5vh;
   margin-left: 16vw;
   width: 68vw;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #D9D9D9;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: auto;
 }
 
 /* Rectangle 6 */
 /* The little movie poster on the movie card */
 .movie-poster{
-  display:inline-block;
-  margin-left: 2vw;
-  margin-top: 2vh;
-  width: 8vw;
-  height: 14vh;
+  width: 155px; /* 135px */
+  height: 260px; /* 240px for movie poster resolution */
   background: #D9D9D9;
+  border: 3px;
+  border-color: black;
+  position: relative;
+  margin: 10px;
 }
 
 .movie-titlecard {
-  font-family: Courier, 'Courier New';
-  position: absolute;
-  padding-left: 2vw;
-  display: inline-block;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  width: auto;
+  margin: 25px;
 }
 
-/* ctrl-v from w3schools page on Collapsible
-
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
+/*the body where all the titlecards appear*/
+.content {
+  height: 100%;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .collapsible:hover {
-  background-color: #ccc;
+.logo {
+  padding: 5px;
+  font-family: Courier, monospace;
+  color: white;
+  text-align: center;
+}
+
+.loginText {
+  text-align: right;
 }
 
 /* Style the collapsible content. Note: hidden by default */
 .synopsis {
-  padding: 0 18px;
-  display: block;
-  background-color: white;
+  background-color: white; /*remove after the synopsis is working correctly */
   position: relative;
+  width: 100%;
+}
+
+.synopsisField {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  resize: none;
 }
 
 h3 {
@@ -79,7 +83,7 @@ h3 {
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 25% 24% 24% 24%;
   gap: 10px;
   background-color: black;
   padding: 10px;
@@ -90,17 +94,18 @@ h3 {
   grid-template-columns: auto auto auto;
   gap: 10px;
   padding: 20px 0px 80px 0px;
+  height: 20px;
 }
 
 .header-button {
   background-color: black;
   border-left-color: white;
   border-right-color: white;
-  border-width: 0px 5px 0px 5px;
+  border-width: 0px 1px 0px 1px;
   color: white;
-  position: relative;
   text-align: center;
   height: 60px;
+  width: 100%;
 }
 
 .header-searchbar {
@@ -150,4 +155,33 @@ h3 {
 
 .formLabels {
   padding: 5px;
+}
+
+.header-button:active {
+  background-color: red;
+}
+
+.header-button:hover {
+  background-color: black;
+  color: red;
+  animation-name: navbarHover;
+  animation-duration: 2s;
+}
+
+@keyframes navbarHover {
+  from {background-color: white;}
+  to { 
+    background-color: red;
+    color: black;
+    border: 2px;
+  }
+}
+
+@keyframes navbarSelect {
+  from{
+
+  }
+  to {
+
+  }
 }
