@@ -23,12 +23,13 @@ function TitleCard(props) {
       </div>
     )
 }
-  
+ 
+// https://www.npmjs.com/package/star-based-rating //
 function StarRating() {
   return (
     <div>
       <StarBasedRating 
-]        totalStars={10}
+        totalStars={10}
         previousStarsToDisplay={3} />     
     </div>
   )
