@@ -2,43 +2,43 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import StarBasedRating from 'star-based-rating'
 
-function MoviePoster () {
+function MoviePoster (props) {
     return(
-      <div className="movie-poster">
-  
-      </div>
+      <img src={props.movieposter} className="movie-poster" alt="">
+      </img>
     )
   }
   
 function TitleCard(props) {
+  // Receives {props.media}, referring to the type of media
     return(
       <div className="movie-titlecard">
-        <h1>{props.media} Title</h1>
+        <h1>{props.title}</h1>
+        <p>{props.genre}</p>
         <button className="collapsible">
           Push Me
         </button>
-        <StarRating />
-        <Synopsis />
-        
+        <StarRating rating={props.rating}/>
+        <Synopsis synopsis={props.synopsis}/>
       </div>
     )
 }
  
 // https://www.npmjs.com/package/star-based-rating //
-function StarRating() {
+function StarRating(props) {
   return (
     <div>
       <StarBasedRating 
         totalStars={10}
-        previousStarsToDisplay={3} />     
+        previousStarsToDisplay={props.rating} />     
     </div>
   )
 }
 
-  function Synopsis () {
+  function Synopsis (props) {
     return (
       <div className="synopsis">
-        <textarea className="synopsisField">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+        <p className="synopsisField">{props.synopsis}</p>
       </div>
     )
   }
@@ -46,8 +46,13 @@ function StarRating() {
   export default function InfoCard (props) {
     return (
         <div className="movie-card">
-          <MoviePoster />
-          <TitleCard media={props.media}/>
+          <MoviePoster movieposter={props.movieposter}/>
+          <TitleCard media={props.media} 
+                     title={props.title} 
+                     synopsis={props.synopsis} 
+                     genre={props.genre}
+                     rating={props.rating}
+                     />
         </div>
     )
   }

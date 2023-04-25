@@ -31,8 +31,6 @@
 /* Rectangle 6 */
 /* The little movie poster on the movie card */
 .movie-poster{
-  width: 155px; /* 135px */
-  height: 260px; /* 240px for movie poster resolution */
   background: #D9D9D9;
   border: 3px;
   border-color: black;
@@ -65,9 +63,9 @@
 
 /* Style the collapsible content. Note: hidden by default */
 .synopsis {
-  background-color: white; /*remove after the synopsis is working correctly */
   position: relative;
   width: 100%;
+  padding: 10px;
 }
 
 .synopsisField {
@@ -165,7 +163,7 @@ h3 {
   background-color: black;
   color: red;
   animation-name: navbarHover;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 @keyframes navbarHover {
