@@ -13,7 +13,7 @@ function TitleCard(props) {
   // Receives {props.media}, referring to the type of media
     return(
       <div className="movie-titlecard">
-        <h1>{props.title}</h1>
+        <h1>{props.title} ({props.year})</h1>
         <p>{props.genre}</p>
         <button className="collapsible">
           Push Me
@@ -52,6 +52,7 @@ function StarRating(props) {
                      synopsis={props.synopsis} 
                      genre={props.genre}
                      rating={props.rating}
+                     year={props.year}
                      />
         </div>
     )
