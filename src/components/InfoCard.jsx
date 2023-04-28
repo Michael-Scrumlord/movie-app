@@ -2,15 +2,14 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import StarBasedRating from 'star-based-rating'
 
-function MoviePoster (props) {
+function MediaPoster (props) {
     return(
-      <img src={props.movieposter} className="movie-poster" alt="">
+      <img src={props.mediaposter} className="movie-poster" alt="">
       </img>
     )
   }
   
 function TitleCard(props) {
-  // Receives {props.media}, referring to the type of media
     return(
       <div className="movie-titlecard">
         <h1>{props.title} ({props.year})</h1>
@@ -46,7 +45,7 @@ function StarRating(props) {
   export default function InfoCard (props) {
     return (
         <div className="movie-card">
-          <MoviePoster movieposter={props.movieposter}/>
+          <MediaPoster mediaposter={props.mediaposter}/>
           <TitleCard media={props.media} 
                      title={props.title} 
                      synopsis={props.synopsis} 
