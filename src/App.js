@@ -5,17 +5,25 @@ import { Route, Routes } from 'react-router-dom';
 import AddMedia from './components/AddMedia';
 import MediaList from './components/MediaList';
 
+function AllMedia(props){
+  return(
+    <>
+      <MediaList media={props.media}/>
+      <AddMedia media={props.media}/>
+    </>
+  )
+}
+
 function App() {
   return (
     <>
       <NavHeader />
-      <AddMedia />
       <Routes>
-        <Route path="/" element={<MediaList media="Movie"/>} />
-        <Route path="/MovieList" element={<MediaList media="Movie"/>} />
-        <Route path="/BookList" element={<MediaList media="Book"/>} />
-        <Route path="/SeriesList" element={<MediaList media="Series"/>} />
-        <Route path="/GamesList" element={<MediaList media="Games"/>} />
+        <Route path="/" element={<AllMedia media="Movie"/>} > </Route>
+        <Route path="/MovieList" element={<AllMedia media="Movie"/>} />
+        <Route path="/BookList" element={<AllMedia media="Book"/>}/>
+        <Route path="/SeriesList" element={<AllMedia media="Series"/>}/>
+        <Route path="/GamesList" element={<AllMedia media="Game"/>}/>
       </Routes>
     </>
   );

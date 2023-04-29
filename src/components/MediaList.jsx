@@ -48,46 +48,43 @@ function InfoCard (props) {
 
 export default function MediaList(props) {
     
-    var mediaType = 0;
-    var listSize = 10
+  var mediaType = 0; // [Movie, Series, Book, Game]
+  var listSize = 10; // Provides the number of entries to load
 
-    // References the index in MediaData[i][j]
-    switch (props.media) {
-      case "Movie":
-        mediaType = 0;
-        break;
+  switch (props.media) {
+    case "Movie":
+      mediaType = 0;
+      break;
+    case "Series":
+      mediaType = 1;
+      break;
+    case "Book":
+      mediaType = 2;
+      break;
+    case "Game":
+      mediaType = 3;
+      break;
+  
+    default:
+      break;
+  }
 
-      case "Series":
-        mediaType = 1;
-        break;
-
-      case "Book":
-        mediaType = 2;
-        break;
-      
-      case "Game":
-        mediaType = 3;
-        break;
-    
-      default:
-        break;
-    }
-
-    const mediaList= [];
+  const mediaList= [];
 
   for (let rank = 0; rank < listSize; rank++) {
-        mediaList.push (<InfoCard media={props.media} 
-          title={MediaData[mediaType][rank].Name} 
-          synopsis={MediaData[mediaType][rank].Synopsis} 
-          mediaposter={MediaData[mediaType][rank].Poster}
-          genre={MediaData[mediaType][rank].Genre}
-          rating={MediaData[mediaType][rank].UserRating}
-          year={MediaData[mediaType][rank].Year}
-          />  )
+    mediaList.push (<InfoCard media={props.media} 
+      // The props
+      title =      { MediaData[mediaType][rank].Name } 
+      synopsis =   { MediaData[mediaType][rank].Synopsis } 
+      mediaposter ={ MediaData[mediaType][rank].Poster }
+      genre =      { MediaData[mediaType][rank].Genre }
+      rating =     { MediaData[mediaType][rank].UserRating }
+      year =       { MediaData[mediaType][rank].Year }
+      />)
   }
     return (
       <div className = "content">
-          {mediaList} 
-        </div>
+        {mediaList} 
+      </div>
     )
   }
