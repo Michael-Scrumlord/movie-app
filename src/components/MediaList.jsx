@@ -72,15 +72,7 @@ export default function MediaList(props) {
   const mediaList= [];
 
   for (let rank = 0; rank < listSize; rank++) {
-    mediaList.push (<InfoCard media={props.media} 
-      // The props
-      title =      { MediaData[mediaType][rank].Name } 
-      synopsis =   { MediaData[mediaType][rank].Synopsis } 
-      mediaposter ={ MediaData[mediaType][rank].Poster }
-      genre =      { MediaData[mediaType][rank].Genre }
-      rating =     { MediaData[mediaType][rank].UserRating }
-      year =       { MediaData[mediaType][rank].Year }
-      />)
+    AddToMediaArray(mediaList, props, mediaType, rank)
   }
     return (
       <div className = "content">
@@ -88,3 +80,14 @@ export default function MediaList(props) {
       </div>
     )
   }
+
+function AddToMediaArray(mediaList, props, mediaType, rank) {
+  mediaList.push(<InfoCard media={props.media}
+    // The props
+    title={MediaData[mediaType][rank].Name}
+    synopsis={MediaData[mediaType][rank].Synopsis}
+    mediaposter={MediaData[mediaType][rank].Poster}
+    genre={MediaData[mediaType][rank].Genre}
+    rating={MediaData[mediaType][rank].UserRating}
+    year={MediaData[mediaType][rank].Year} />)
+}

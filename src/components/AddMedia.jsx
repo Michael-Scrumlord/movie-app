@@ -1,19 +1,38 @@
 import React from "react";
+import { Modal } from "react-bootstrap";
+
+
 
 function AddForm(props) {
     return (
-        <div className="addForm-popup" id="addForm">
-            <form className="EntryForm">
-                <fieldset className="FormBox">
-                    <fieldset>
-                        <legend> Add a {props.media}</legend>
-                        <label className="formLabels"> Title: </label>
-                        <input type="text" id="uname" name="uname" required/><br/>
-                        <label className="formLabels"> Year: </label>
-                        <input type="number" min="1900" max="2024" step="1"/>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Genre</legend>
+        <>
+            <button type="button" className="btn btn-outline-dark btn-block" data-toggle="modal" data-target="#addMediaModal">
+            Add a {props.media}
+            </button>
+
+            <AddMediaModal media={props.media}/>
+        </>
+    )
+}
+
+function AddMediaModal(props) {
+    return <div className="modal fade" id="addMediaModal" tabindex="-1" role="dialog" aria-labelledby="addMediaModalLabel" aria-hidden="true">
+        <div className="modal-dialog" role="document">
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="addMediaModalLabel">Add a {props.media}</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div className="modal-body">
+                    <form className="addForm-popup">
+                        <div className="form-group">
+                            <label for="title">Title: </label>
+                            <input className="form-control" id="title" placeholder={props.media} />
+                            <label> Year: </label>
+                            <input className="form-control" name="Year" type="number" min="1900" max="2024" step="1" />
+                        </div>
                         <input type="checkbox" id="horror" name="genre" />
                         <label className="formLabels">Horror</label>
                         <input type="checkbox" id="scifi" name="genre" />
@@ -26,43 +45,48 @@ function AddForm(props) {
                         <label className="formLabels">Family</label>
                         <input type="checkbox" id="action" name="genre" />
                         <label className="formLabels">Action</label>
-                    </fieldset>
-                    <fieldset>
-                    <legend>Add</legend>
-                    <label className="formLabels">Rate the story: </label>
-                    <select name="rating" id="story">
-                        <option value="1">The worst</option>
-                        <option value="2">Not that great</option>
-                        <option value="3">It was OK</option>
-                        <option value="4">Top Notch</option>
-                    </select><br/>
-                    <label className="formLabels">Rate the originality: </label>
-                    <select name="rating" id="originality">
-                        <option value="1">Generic</option>
-                        <option value="2">Apple</option>
-                        <option value="3">Pear</option>
-                        <option value="4">Grape</option>
-                    </select>
-                    <label className="formLabels">Would you recommend to a friend? </label>
-                    <select name="rating" id="recommend">
-                        <option value="1">No, I wouldn't subject someone to this.</option>
-                        <option value="2">Probably not</option>
-                        <option value="3">No, but it was still a good movie</option>
-                        <option value="4">Yes</option>
-                    </select>
-                    </fieldset>
-                    <legend>Leave a review:</legend>
-                    <textarea 
-                        id="textBox" 
-                        placeholder="Enter your comment here"
-                        rows="7"
-                        cols="25"></textarea><br/>
-                    <button type="submit" variant="secondary">Send</button>
-                    <button onClick={minimizeForm}>Close</button>
-                </fieldset>
-            </form>
+                        <div className="form-group">
+                            <label for="storyRating">Rate The Story (1-5)</label>
+                            <select className="form-control" id="rating">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <label for="originality">Rate The Originality:</label>
+                            <select className="form-control" id="originality">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <label for="Rate The Originality:">Would you recommend?</label>
+                            <select className="form-control" id="originality">
+                                <option value="1">No, I wouldn't subject someone to this.</option>
+                                <option value="2">Probably not</option>
+                                <option value="3">No, but it was still a good movie</option>
+                                <option value="4">Yes</option>
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <label for="synopsis">Add a Synopsis</label>
+                            <textarea className="form-control" id="review" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" className="btn btn-primary">Add</button>
+                </div>
+            </div>
         </div>
-    )
+    </div>;
 }
 
 function minimizeForm(props) {
@@ -77,9 +101,9 @@ function minimizeForm(props) {
     }
 }
 
-function AddButton() {
+function AddButton(props) {
     return (
-        <button className="addButton-icon" onClick={minimizeForm}>
+        <button className="addButton-icon" onClick={<AddForm/>}>
         </button>
     )
 }
@@ -105,14 +129,26 @@ function AddButtonClosed(props) {
 
     return (        
         <div>
-            <AddButton />
-            <AddForm media={props.media}/>
+            <AddButton/>
         </div>
     )
 }
 
+
+
+function handleSubmit(e) {
+    e.prevendDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const formJson = Object.fromEntries(formData.entries());
+    console.log(formJson);
+}
+
 export default function AddMedia(props) {
+
     return (
-        <AddButtonClosed media={props.media}/>
+        <AddForm media={props.media}/>
     )
 }
