@@ -97,7 +97,7 @@ export const MediaData = [
         {
             Name: "The Last of Us",
             Synopsis: "After a global pandemic destroys civilization, a hardened survivor takes charge of a 14-year-old girl who may be humanity's last hope.",
-            Poster: "./public/assets/LastofUsTV.jpg",
+            Poster: "./assets/LastofUsTV.jpg",
             MPAArating: "TV-MA",
             UserRating: 7.9,
             Year: "2023-",
