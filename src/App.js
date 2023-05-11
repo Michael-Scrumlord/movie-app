@@ -21,11 +21,11 @@ function App() {
       <NavHeader />
       <Routes>
         <Route path="/" element={<AllMedia media="Movie"/>} />
-        <Route path="/MovieList" element={<AllMedia media="Movie"/>}/>
-        <Route path="/BookList" element={<AllMedia media="Book"/>}/>
-        <Route path="/SeriesList" element={<AllMedia media="Series"/>}/>
-        <Route path="/GamesList" element={<AllMedia media="Game"/>}/>
-        <Route path="/About" element={<About/>}/>
+        <Route path="./MovieList" element={<AllMedia media="Movie"/>}/>
+        <Route path="./BookList" element={<AllMedia media="Book"/>}/>
+        <Route path="./SeriesList" element={<AllMedia media="Series"/>}/>
+        <Route path="./GamesList" element={<AllMedia media="Game"/>}/>
+        <Route path="./About" element={<About/>}/>
       </Routes>
     </>
   );
