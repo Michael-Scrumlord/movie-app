@@ -20,7 +20,7 @@ function App() {
     <>
       <NavHeader />
       <Routes>
-        <Route path="/" element={<AllMedia media="Movie"/>} />
+        <Route path="/movie-app" element={<AllMedia media="Movie"/>} />
         <Route path="/MovieList" element={<AllMedia media="Movie"/>}/>
         <Route path="/BookList" element={<AllMedia media="Book"/>}/>
         <Route path="/SeriesList" element={<AllMedia media="Series"/>}/>

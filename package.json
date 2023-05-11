@@ -1,7 +1,7 @@
 {
   "name": "movie-app-v3",
   "version": "0.1.0",
-  "homepage": "https://Michael-Scrumlord.github.io/movie-app",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

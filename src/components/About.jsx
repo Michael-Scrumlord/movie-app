@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FormComponent from './FormComponent';
 
 function Contact() {
         return (
@@ -81,11 +80,6 @@ function WorkExperience() {
     );
   };
 
-function AboutMe(){
-    return(
-        <FormComponent />
-    )
-}
 
 function AboutApp(){
     return(
